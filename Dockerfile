@@ -5,7 +5,7 @@ ADD ./ /src/
 
 WORKDIR /src
 
-RUN go build ./ -v
+RUN go build -v ./
 
 # Second stage: minimal runtime environment
 FROM scratch
