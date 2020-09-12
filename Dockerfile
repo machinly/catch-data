@@ -5,11 +5,11 @@ ADD ./ /src/
 
 WORKDIR /src
 
-RUN go build -v ./
+RUN go build -o catch-data ./ 
 
 # Second stage: minimal runtime environment
 FROM scratch
 # copy jar from the first stage
-COPY --from=builder main main
+COPY --from=builder /src/catch-data catch-data
 # run jar
-CMD ["main"]
+CMD ["catch-data"]
