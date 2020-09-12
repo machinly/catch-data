@@ -10,6 +10,6 @@ RUN go build -v ./
 # Second stage: minimal runtime environment
 FROM scratch
 # copy jar from the first stage
-COPY --from=builder src/main main
+COPY --from=builder main main
 # run jar
 CMD ["main"]
